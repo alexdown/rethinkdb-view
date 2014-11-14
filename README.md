@@ -18,7 +18,7 @@ The **data model** is:
         "date" : ISODate("2014-10-14T23:00:00.000Z")
     }
 ```
-  by running
+	by running
 ```javascript
 	// execute only once
 	r.dbCreate("test1")
@@ -63,3 +63,8 @@ The **"presentation"** (such a pretentious word) goes like that:
 	```
 
 6. Outside of the db also here, like in mongoDB. However, a BIG BIG plus is that each change "notification" have access to the _old_ value of each object in addition to the _new_ one (in mongodb, there was no way to retrieve the old value of the row from the oplog, as it contains only the changes to apply).
+
+
+Bedtime reading, if you like the topic:
+- http://rethinkdb.com/docs/rethinkdb-vs-mongodb/
+- http://rethinkdb.com/docs/comparison-tables/
