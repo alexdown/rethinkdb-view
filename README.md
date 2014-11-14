@@ -12,21 +12,21 @@ You need **the following software**:
 The **data model** is:
 - One db `test1` with one table `sales`.
   You can add elements in it in the form:
-```json
+  ```json
     {
         "desc" : "fourth sale in october",
         "date" : ISODate("2014-10-14T23:00:00.000Z")
     }
-```
-	by running
-```javascript
+  ```
+  by running
+  ```javascript
 	// execute only once
 	r.dbCreate("test1")
 	r.db("test1").tableCreate("sales")
 	
 	// execute many times to populate the table with entries with different dates
 	r.db('test1').table("sales").insert({desc: "second sales in november", date: r.time(2014, 11, 6, '+08:00')})
-```
+  ```
 
 ## Presentation
 The **"presentation"** (such a pretentious word) goes like that:
