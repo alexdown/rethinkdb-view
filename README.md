@@ -61,3 +61,5 @@ The **"presentation"** (such a pretentious word) goes like that:
 	}
 
 	```
+
+6. Outside of the db also here, like in mongoDB. However, a BIG BIG plus is that each change "notification" have access to the _old_ value of each object in addition to the _new_ one (in mongodb, there was no way to retrieve the old value of the row from the oplog, as it contains only the changes to apply).
