@@ -35,9 +35,11 @@ The **"presentation"** (such a pretentious word) goes like that:
 
 2. However, there is no equivalent to the mongo `$out`, so your only option is query via a client and then re-insert the data in a new table
 
-3. The option of monitoring for changes on a table is available also in rethinkDB. It is kind of more "official" than the mongoDB equivalent "hack" of tailing the oplog. It is called [change feeds](http://rethinkdb.com/docs/changefeeds/javascript)
+3. And, as in mongo, feature requests for [views](https://github.com/rethinkdb/rethinkdb/issues/1542) and [materialized views](https://github.com/rethinkdb/rethinkdb/issues/3171) have been created but not yet prioritized.
 
-4. You can create a cursor that is returning an object every time a specific table is updated. In the example below (also in `test.js`, I create a changefeed on the `sales` table:
+4. The option of monitoring for changes on a table is available also in rethinkDB. It is kind of more "official" than the mongoDB equivalent "hack" of tailing the oplog. It is called [change feeds](http://rethinkdb.com/docs/changefeeds/javascript)
+
+5. You can create a cursor that is returning an object every time a specific table is updated. In the example below (also in `test.js`, I create a changefeed on the `sales` table:
 
 	```javascript
 	connect().then(function(conn){
@@ -48,7 +50,7 @@ The **"presentation"** (such a pretentious word) goes like that:
 	});
 	```
 
-5. What you can do with the cursor is iterate on it using `forEach`.
+6. What you can do with the cursor is iterate on it using `forEach`.
 	```javascript
 	cursor.each(function(err, item){
 
@@ -62,7 +64,7 @@ The **"presentation"** (such a pretentious word) goes like that:
 
 	```
 
-6. Outside of the db also here, like in mongoDB. However, a BIG BIG plus is that each change "notification" have access to the _old_ value of each object in addition to the _new_ one (in mongodb, there was no way to retrieve the old value of the row from the oplog, as it contains only the changes to apply).
+7. Outside of the db also here, like in mongoDB. However, a BIG BIG plus is that each change "notification" have access to the _old_ value of each object in addition to the _new_ one (in mongodb, there was no way to retrieve the old value of the row from the oplog, as it contains only the changes to apply).
 
 
 Bedtime reading, if you like the topic:
