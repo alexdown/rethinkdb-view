@@ -70,3 +70,26 @@ The **"presentation"** (such a pretentious word) goes like that:
 Bedtime reading, if you like the topic:
 - http://rethinkdb.com/docs/rethinkdb-vs-mongodb/
 - http://rethinkdb.com/docs/comparison-tables/
+
+## SQL
+
+As a reference, the SQL equivalent of the data model above is (PostgreSQL):
+- **`sales` table**: 
+  ```
+  CREATE TABLE sales ( date date, "desc" character varying)
+  ```
+  
+- **`sales` table entries**:
+  ```
+  INSERT INTO sales VALUES ('2014-09-03', 'another sale')
+  ```
+  
+- **`monthlySalesReport` query/view** (to create the view, prefix the query with `CREATE VIEW AS`):
+  ```
+  SELECT 
+    concat(date_part('year', date), '-', date_part('month', date)) as id,
+    count(*)
+  FROM
+    sales
+  GROUP BY id
+  ```
